@@ -1,0 +1,20 @@
+{
+  "_about": "Everything the Sovereign Vanguard concept page says and how it looks. Edit here, then: node build.js (writes site/). Source of truth for brand values: Sovereign-Vanguard-Concierge-MSP/docs/Sovereign_Vanguard_Brand_Management_Blueprint.md (PROPOSED standards). Only CONFIRMED facts appear on the page.",
+  "concept": true,
+  "liveApproval": null,
+  "_liveApproval": "LIVE RULE (Ken 2026-11-12): concept preview with noindex until Ken, Ann or Marty explicitly says go live. Then record { by, date, where } and set concept:false; build.js refuses otherwise.",
+  "host": "svcmsp.scalablestudio.online",
+  "name": "Sovereign Vanguard",
+  "fullName": "Sovereign Vanguard Concierge MSP",
+  "descriptor": "Private Technology & Concierge Managed Services",
+  "statement": "A private technology management firm with an executive concierge experience.",
+  "status": "Our website is being prepared.",
+  "parent": { "label": "A Scalable Studio company", "url": "https://scalablestudio.online/" },
+  "palette": { "navy": "#101D2C", "gold": "#C7A96B", "ivory": "#F5F0E6", "slate": "#293D50", "muted": "#D5DCE4" },
+  "fonts": {
+    "display": "Cormorant Garamond",
+    "body": "Manrope",
+    "googleCss": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;600&display=swap",
+    "_licence": "Both SIL OFL (punch list #11 records the licence)."
+  }
+}
