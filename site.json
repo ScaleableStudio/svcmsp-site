@@ -14,7 +14,7 @@
     "url": "https://scalablestudio.online/"
   },
   "conceptBanner": "CONCEPT PREVIEW · not the live site · proposed content for review",
-  "conceptFooter": "Concept preview for internal review. Service families, packages and safeguards shown here are proposed and not yet offered. Imagery is original vector artwork.",
+  "conceptFooter": "Concept preview for internal review. Service families, packages and safeguards are proposed and not yet offered. Original cinematic vector concept artwork.",
   "palette": {
     "midnight": "#101D2C",
     "champagne": "#C7A96B",
@@ -98,6 +98,29 @@
         "w": 1200,
         "h": 630,
         "alt": "Sovereign Vanguard. Technology managed with authority. Service delivered with care."
+      },
+      "board": {
+        "master": "concept-board.png",
+        "widths": [
+          960,
+          1920
+        ],
+        "quality": 82,
+        "w": 1920,
+        "h": 1080,
+        "alt": "The Lit Keystone concept poster: technology managed with authority, service delivered with care."
+      },
+      "mark": {
+        "master": "mark.png",
+        "widths": [
+          128,
+          256,
+          512
+        ],
+        "quality": 88,
+        "w": 512,
+        "h": 512,
+        "alt": "The existing SV placeholder monogram in a keystone outline."
       }
     }
   },
@@ -850,5 +873,67 @@
     "notice": "This form is a demonstration. Nothing is sent or saved by this page. Use sample details only; the real enquiry route is still to be agreed.",
     "button": "Preview request",
     "noScript": "The form preview needs JavaScript. It is disabled here and cannot send a request."
+  },
+  "_conceptPreviewDeployment": {
+    "by": "Ken",
+    "date": "2026-11-13",
+    "where": "Mary chat: re-render all graphics in 64K, deploy them, then review; cinematic Unreal-style appearance confirmed."
+  },
+  "artworkReview": {
+    "file": "artwork.html",
+    "title": "Cinematic artwork review / Sovereign Vanguard",
+    "description": "Review the cinematic Lit Keystone graphic family and browser-sized derivatives of the native 64K vector artwork.",
+    "hero": {
+      "eyebrow": "Concept artwork / cinematic v3",
+      "h1": "The Lit Keystone, in a new light.",
+      "lede": "Eight graphic masters rendered from editable vector sources at 61,440 pixels on the long edge. These smaller browser versions show the same art direction: beveled stone, warm light, fine paths and reflected light. Cinematic Unreal-style appearance; Unreal Engine was not used."
+    },
+    "sections": [
+      {
+        "type": "gallery",
+        "items": [
+          {
+            "image": "hero",
+            "title": "The lit keystone",
+            "caption": "Desktop composition / 64K master: 61,440 x 34,560."
+          },
+          {
+            "image": "hero-m",
+            "title": "A portrait of stewardship",
+            "caption": "Mobile composition / 64K master: 49,152 x 61,440."
+          },
+          {
+            "image": "keystone",
+            "title": "One accountable relationship",
+            "caption": "Converging paths / 64K master: 61,440 x 61,440."
+          },
+          {
+            "image": "guardian",
+            "title": "Protective oversight",
+            "caption": "Defined access and boundaries / 64K master: 61,440 x 61,440."
+          },
+          {
+            "image": "door",
+            "title": "Discretion",
+            "caption": "A private office / 64K master: 61,440 x 61,440."
+          },
+          {
+            "image": "board",
+            "title": "The concept poster",
+            "caption": "Browser review composition; companion vector-native 64K poster: 61,440 x 34,560."
+          },
+          {
+            "image": "og",
+            "title": "The social card",
+            "caption": "Browser social composition; companion vector-native 64K card: 61,440 x 32,256."
+          },
+          {
+            "image": "mark",
+            "title": "The placeholder mark",
+            "caption": "Existing scalable SV monogram, retained for concept review / 64K master: 61,440 x 61,440. Final identity approval remains separate."
+          }
+        ]
+      }
+    ]
   }
 }

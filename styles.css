@@ -58,6 +58,12 @@ p{margin:0 0 1em}
 .hero-copy h1 span+span{color:var(--champagne);font-size:.72em;line-height:1.22;margin-top:.3em}
 .hero-copy .lead{max-width:52ch}
 .intro-copy{max-width:800px}
+.art-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+.art-gallery figure{margin:0;min-width:0}
+.art-gallery img{width:100%;max-height:540px;object-fit:contain;background:var(--midnight);border-radius:12px}
+.art-gallery figcaption{padding-top:18px}
+.art-gallery figcaption p{font-size:15px}
+@media(max-width:760px){.art-gallery{grid-template-columns:minmax(0,1fr)}}
 .responsibilities{margin:28px 0}
 .responsibilities>div{border-top:1px solid rgba(41,61,80,.2);padding:16px 0}
 .responsibilities dt{font-weight:600;color:var(--midnight)}

@@ -24,7 +24,7 @@ const budget = qa.pageBudgetBytes;
   const results = []; let failures = 0;
   const fail = (msg) => { failures++; console.log('  FAIL ' + msg); };
   try {
-    for (const pg of s.pages.map(x => x.file).concat('404.html')) {
+    for (const pg of s.pages.map(x => x.file).concat('404.html', s.concept && s.artworkReview ? [s.artworkReview.file] : [])) {
       for (const w of widths) {
         const page = await browser.newPage({ viewport: { width: w, height: 900 } });
         const failed = [], errors = [], aborted = [], transfers = []; let bytes = 0;

@@ -22,10 +22,11 @@ const baseUrl = `https://${s.host}/`;
 // ---------- pieces ----------
 // Placeholder SV mark until the real monogram exists (punch list #10): two strokes in a keystone frame.
 const markSvg = (cls, label) => `<svg${cls ? ` class="${cls}"` : ''} viewBox="0 0 72 72"${label ? ` role="img" aria-label="${label}"` : ' aria-hidden="true"'}><path d="M10 6h52v38L36 66 10 44z" fill="none" stroke="${p.champagne}" stroke-width="2"/><path d="M27 22c-6 0-8 7-1 9l6 2c7 2 5 10-2 10" fill="none" stroke="${p.ivory}" stroke-width="2.4" stroke-linecap="round"/><path d="M38 22l7 21 7-21" fill="none" stroke="${p.champagne}" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
-const srcset = key => img[key].widths.map(w => `img/${key}-${w}.webp ${w}w`).join(', ');
+const extension = key => img[key].format === 'jpeg' ? 'jpg' : 'webp';
+const srcset = key => img[key].widths.map(w => `img/${key}-${w}.${extension(key)} ${w}w`).join(', ');
 const pic = (key, sizes, cls = '', eager = false) => {
   const i = img[key], w = i.widths[i.widths.length - 1];
-  return `<img class="${cls}" src="img/${key}-${w}.webp" srcset="${srcset(key)}" sizes="${sizes}" width="${i.w}" height="${i.h}" alt="${esc(i.alt)}"${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}>`;
+  return `<img class="${cls}" src="img/${key}-${w}.${extension(key)}" srcset="${srcset(key)}" sizes="${sizes}" width="${i.w}" height="${i.h}" alt="${esc(i.alt)}"${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}>`;
 };
 const btn = (l, h, cls = 'btn') => `<a class="${cls}" href="${esc(h)}">${esc(l)}</a>`;
 const textLink = l => l ? `<p class="more"><a href="${esc(l.href)}">${esc(l.label)} <span aria-hidden="true">→</span></a></p>` : '';
@@ -65,6 +66,7 @@ const sections = {
 </form></div>
 <aside><h2 class="h3">What happens next</h2><ol class="next-steps">${x.next.map(n => `<li><h3>${esc(n.title)}</h3><p>${esc(n.body)}</p></li>`).join('')}</ol></aside></div></section>`,
   legal: x => `<section class="band"><div class="wrap narrow">${draft(x.draft)}${x.parts.map(pt => `<div class="legal" id="${pt.id}"><h2>${esc(pt.h2)}</h2>${pt.paras.map(t => `<p>${esc(t)}</p>`).join('')}</div>`).join('')}</div></section>`
+  ,gallery: x => `<section class="band"><div class="wrap"><div class="art-gallery">${x.items.map(i => `<figure>${pic(i.image, '(max-width: 760px) 90vw, 550px')}<figcaption><h2 class="h3">${esc(i.title)}</h2><p>${esc(i.caption)}</p></figcaption></figure>`).join('')}</div></div></section>`
 };
 
 const hero = pg => {
@@ -113,7 +115,7 @@ ${pg.sections.map(x => sections[x.type](x)).join('\n')}
 </main>
 <footer class="site-foot"><div class="wrap foot-grid">
 <div><p class="foot-brand">${markSvg('mark', '')}<span>${esc(s.fullName)}</span></p><p>${esc(s.descriptor)}</p><p class="tag">${esc(s.tagline)}</p></div>
-<nav aria-label="Footer"><ul>${s.nav.concat(s.footerLinks).filter(n => n.href !== 'index.html').map(n => `<li><a href="${n.href}">${esc(n.label)}</a></li>`).join('')}</ul></nav>
+<nav aria-label="Footer"><ul>${s.nav.concat(s.footerLinks, s.concept && s.artworkReview ? [{label:'Artwork review',href:s.artworkReview.file}] : []).filter(n => n.href !== 'index.html').map(n => `<li><a href="${n.href}">${esc(n.label)}</a></li>`).join('')}</ul></nav>
 <div><p><a href="${esc(s.parent.url)}">${esc(s.parent.label)}</a></p>${s.concept ? `<p class="small">${esc(s.conceptFooter)}</p>` : ''}</div>
 </div></footer>
 <script>${script}</script>
@@ -123,6 +125,7 @@ ${pg.sections.map(x => sections[x.type](x)).join('\n')}
 };
 
 for (const pg of s.pages) fs.writeFileSync(path.join(out, pg.file), page(pg));
+if (s.concept && s.artworkReview) fs.writeFileSync(path.join(out, s.artworkReview.file), page(s.artworkReview));
 fs.writeFileSync(path.join(out, '404.html'), page({ file: '404.html', title: `Page not found · ${s.name}`, description: 'This page could not be found.',
   hero: { eyebrow: 'Not found', h1: 'This page could not be found.', lede: 'It may have moved. The links above will take you where you need to go.' }, sections: [{ type: 'cta' }] }));
 fs.writeFileSync(path.join(out, 'favicon.svg'), markSvg('', '').replace(' aria-hidden="true"', ' xmlns="http://www.w3.org/2000/svg"').replace('<path d="M10', `<rect width="72" height="72" fill="${p.midnight}"/><path d="M10`));

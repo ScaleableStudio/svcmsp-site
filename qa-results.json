@@ -1,10 +1,7 @@
 {
-  "date": "2026-11-13T17:22:24.094Z",
-  "base": {
-    "concept": "c65fb3f",
-    "publishedPlaceholder": "c792f89"
-  },
-  "viewportChecks": 36,
+  "date": "2026-11-13T18:13:32.764Z",
+  "version": "cinematic-v3",
+  "viewportChecks": 40,
   "widths": [
     1440,
     768,
@@ -13,40 +10,18 @@
   ],
   "failures": 0,
   "automatedAxeViolations": 0,
-  "maxHomeBodyBytes": 140392,
+  "maxHomeBodyBytes": 145884,
   "budgetBytes": 1572864,
-  "interactionAndLinkAssertions": 229,
+  "interactionAndLinkAssertions": 237,
   "interactionFailures": 0,
-  "finalHomeTypographyChecks": [
-    {
-      "width": 1440,
-      "overflow": false,
-      "axe": 0
-    },
-    {
-      "width": 768,
-      "overflow": false,
-      "axe": 0
-    },
-    {
-      "width": 390,
-      "overflow": false,
-      "axe": 0
-    },
-    {
-      "width": 320,
-      "overflow": false,
-      "axe": 0
-    }
-  ],
   "scope": "Local artifact checks, not full WCAG conformance or real-user Core Web Vitals",
   "files": {
-    "site.json": "5727b660a964c4872752471e2ee39486a4bf422ff2b470c8d1418adb6d78256c",
-    "build.js": "22fbf560c9e8c817ae856a29f968c77aebc28e93ee42205f192f9da347f2b582",
+    "site.json": "52d4c688a7d5362e23a3bc9287b00efd1ae8da312153afd4423567a631b9def7",
+    "build.js": "fe6d0612e693c98ee67020852f79d5488a0f25daef264835d8aa5a0453550d82",
     "client.js": "4972b692dccd2e80a4bf160feeb03116f45b54ba01f5f5f651dd912396d2154d",
-    "styles.css": "86a8b53c8001e46830dc4bfac97cd6999495c1acd6d87404784931216054ba14",
+    "styles.css": "709e8cb64300ddd190b928665ab078f1dfc9bd91d02c58db17ceb7b09dcfce06",
     "qa.json": "9ad8e75179aac8e88c8f5613f5e52a5d8465465642d82d0126c633ca9b7d20e7",
-    "tools/check.js": "ec4c92df4419d628f075d057804d29bfdb4a135a330642391c07c2630d550fd6",
+    "tools/check.js": "4f9aaa49fea6372982cdec4249b14d9327f632c56242cc07b6905849a34d58be",
     "tools/check-interactions.js": "28ba580defaceae86d303d0f957094962611133415c8c685202d4cb07b57c14b"
   }
 }

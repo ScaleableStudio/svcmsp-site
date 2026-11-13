@@ -2,7 +2,9 @@
 
 Website for **Sovereign Vanguard Concierge MSP**, a Scalable Studio company. GitHub Pages serves **https://svcmsp.scalablestudio.online** from `main`.
 
-**Review state, 2026-11-13:** the public URL still serves the earlier placeholder. Peter-Simon held the eight-page concept in local commit `c65fb3f` for Ken's review. Mary's refinements are on `mary/vision-concept-review-2026-11-13`; pushing that branch does not deploy it. Merge only after review. Open locally with `node build.js`, then `site/index.html`.
+**Cinematic v3, 2026-11-13:** Ken requested native 64K graphic masters and concept-preview deployment, then confirmed cinematic Unreal-style appearance. This package includes the held eight-page concept, Mary's usability refinements and the new graphic family. `artwork.html` is an additional review gallery. Production go-live remains off. Open locally with `node build.js`, then `site/index.html`.
+
+The private planning repository holds eight native vector-derived masters at 61,440px on the long edge, editable SVGs and hash evidence. Visitors receive small responsive derivatives, never 64K images. Unreal Engine was not used. Earlier held-state notes are historical.
 
 - **Concept preview:** banner, noindex and robots disallow until Ken, Ann or Marty says go live (LIVE RULE; `build.js` refuses a live build without `liveApproval`).
 - `site.json`: everything the site says (8 pages), the palette, fonts, navigation and image list.
