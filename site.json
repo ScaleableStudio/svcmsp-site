@@ -9,12 +9,21 @@
   "descriptor": "Private Technology & Concierge Managed Services",
   "statement": "A private technology management firm with an executive concierge experience.",
   "tagline": "Uncompromising Protection. Exceptional Care.",
-  "parent": { "label": "A Scalable Studio company", "url": "https://scalablestudio.online/" },
+  "parent": {
+    "label": "A Scalable Studio company",
+    "url": "https://scalablestudio.online/"
+  },
   "conceptBanner": "CONCEPT PREVIEW · not the live site · proposed content for review",
   "conceptFooter": "Concept preview for internal review. Service families, packages and safeguards shown here are proposed and not yet offered. Imagery is original vector artwork.",
   "palette": {
-    "midnight": "#101D2C", "champagne": "#C7A96B", "ivory": "#F5F0E6", "slate": "#293D50",
-    "sage": "#708D86", "ink": "#18212B", "mist": "#D5DCE4", "paper": "#FBF8F2"
+    "midnight": "#101D2C",
+    "champagne": "#C7A96B",
+    "ivory": "#F5F0E6",
+    "slate": "#293D50",
+    "sage": "#708D86",
+    "ink": "#18212B",
+    "mist": "#D5DCE4",
+    "paper": "#FBF8F2"
   },
   "fonts": {
     "display": "Cormorant Garamond",
@@ -26,34 +35,120 @@
     "_toolsDir": "../../../Workshop/Bezalel/web-tools",
     "_masterDir": "../Sovereign-Vanguard-Concierge-MSP/vision",
     "set": {
-      "hero": { "master": "hero.png", "widths": [1280, 1920, 2560], "quality": 74, "w": 2560, "h": 1440,
-        "alt": "A stone arch in a dark midnight hall; its keystone glows champagne and fine light paths converge on it." },
-      "hero-m": { "master": "hero-mobile.png", "widths": [720, 1080], "quality": 74, "w": 1080, "h": 1350,
-        "alt": "The lit keystone arch in a portrait composition." },
-      "keystone": { "master": "detail-1.png", "widths": [480, 800], "w": 1000, "h": 1000,
-        "alt": "Many fine light paths converging on a single glowing keystone." },
-      "guardian": { "master": "detail-2.png", "widths": [480, 800], "w": 1000, "h": 1000,
-        "alt": "A champagne key outline held within concentric architectural guard rings." },
-      "door": { "master": "detail-3.png", "widths": [480, 800], "w": 1000, "h": 1000,
-        "alt": "A closed door in an arched stone frame, a thin line of warm light at its edges." },
-      "og": { "master": "og-image.png", "widths": [1200], "format": "jpeg", "quality": 84, "w": 1200, "h": 630,
-        "alt": "Sovereign Vanguard. Technology managed with authority. Service delivered with care." }
+      "hero": {
+        "master": "hero.png",
+        "widths": [
+          1280,
+          1920,
+          2560
+        ],
+        "quality": 74,
+        "w": 2560,
+        "h": 1440,
+        "alt": "A stone arch in a dark midnight hall; its keystone glows champagne and fine light paths converge on it."
+      },
+      "hero-m": {
+        "master": "hero-mobile.png",
+        "widths": [
+          720,
+          1080
+        ],
+        "quality": 74,
+        "w": 1080,
+        "h": 1350,
+        "alt": "The lit keystone arch in a portrait composition."
+      },
+      "keystone": {
+        "master": "detail-1.png",
+        "widths": [
+          480,
+          800
+        ],
+        "w": 1000,
+        "h": 1000,
+        "alt": "Many fine light paths converging on a single glowing keystone."
+      },
+      "guardian": {
+        "master": "detail-2.png",
+        "widths": [
+          480,
+          800
+        ],
+        "w": 1000,
+        "h": 1000,
+        "alt": "A champagne key outline held within concentric architectural guard rings."
+      },
+      "door": {
+        "master": "detail-3.png",
+        "widths": [
+          480,
+          800
+        ],
+        "w": 1000,
+        "h": 1000,
+        "alt": "A closed door in an arched stone frame, a thin line of warm light at its edges."
+      },
+      "og": {
+        "master": "og-image.png",
+        "widths": [
+          1200
+        ],
+        "format": "jpeg",
+        "quality": 84,
+        "w": 1200,
+        "h": 630,
+        "alt": "Sovereign Vanguard. Technology managed with authority. Service delivered with care."
+      }
     }
   },
-  "cta": { "label": "Request a Private Consultation", "href": "contact.html" },
+  "cta": {
+    "label": "Request a Private Consultation",
+    "href": "contact.html",
+    "mobileLabel": "Request a consultation"
+  },
   "nav": [
-    { "label": "Home", "href": "index.html" },
-    { "label": "Services", "href": "services.html" },
-    { "label": "Who We Serve", "href": "who-we-serve.html" },
-    { "label": "Our Approach", "href": "approach.html" },
-    { "label": "About", "href": "about.html" },
-    { "label": "Contact", "href": "contact.html" }
+    {
+      "label": "Home",
+      "href": "index.html"
+    },
+    {
+      "label": "Services",
+      "href": "services.html"
+    },
+    {
+      "label": "Who We Serve",
+      "href": "who-we-serve.html"
+    },
+    {
+      "label": "Our Approach",
+      "href": "approach.html"
+    },
+    {
+      "label": "About",
+      "href": "about.html"
+    },
+    {
+      "label": "Contact",
+      "href": "contact.html"
+    }
   ],
   "footerLinks": [
-    { "label": "Security & Privacy", "href": "security.html" },
-    { "label": "Privacy", "href": "legal.html#privacy" },
-    { "label": "Terms", "href": "legal.html#terms" },
-    { "label": "Accessibility", "href": "legal.html#accessibility" }
+    {
+      "label": "Security & Privacy",
+      "href": "security.html"
+    },
+    {
+      "label": "Privacy",
+      "href": "legal.html#privacy"
+    },
+    {
+      "label": "Terms",
+      "href": "legal.html#terms"
+    },
+    {
+      "label": "Accessibility",
+      "href": "legal.html#accessibility"
+    }
   ],
   "pages": [
     {
@@ -64,209 +159,696 @@
         "type": "home",
         "eyebrow": "Private Technology & Concierge Managed Services",
         "h1": "Technology managed with authority. Service delivered with care.",
-        "lede": "Sovereign Vanguard provides private technology management and concierge managed services for businesses, executives, families and fiduciary offices. Choose the level of support you need. We take responsibility for coordinating and delivering the services within your agreement: quietly, proactively and personally.",
-        "secondary": { "label": "Explore our approach", "href": "approach.html" },
-        "next": "A short, confidential conversation about your needs. No obligation."
+        "lede": "One accountable relationship for your business, executive or private-office technology. We coordinate and manage everything included in your agreement. You retain ownership and approval.",
+        "secondary": {
+          "label": "Explore our approach",
+          "href": "approach.html"
+        },
+        "next": "Start with your needs. Agree the scope before work begins.",
+        "headlineLines": [
+          "Technology managed with authority.",
+          "Service delivered with care."
+        ]
       },
       "sections": [
-        { "type": "intro", "eyebrow": "The promise", "h2": "One relationship. Defined responsibility. Exceptional care.",
-          "paras": ["Most technology support asks you to notice the problem, open the ticket, chase the vendor and follow up. Sovereign Vanguard is designed the other way round: a named relationship owner oversees your agreed environment, coordinates the specialists and vendors behind it, and brings you decisions and progress instead of a queue of unresolved tickets."],
+        {
+          "type": "intro",
+          "eyebrow": "The promise",
+          "h2": "One relationship. Defined responsibility. Exceptional care.",
+          "paras": [
+            "You should not have to manage the people who manage your technology. The proposed concierge model gives you one relationship owner to coordinate included work, keep you informed and bring decisions back to you."
+          ],
           "cards": [
-            { "title": "A single accountable relationship", "body": "One clearly identified person owns coordination, even when several specialists or vendors are needed behind the scenes." },
-            { "title": "Everything in your agreement, managed", "body": "Within the package you choose, the work is owned end to end. You are not asked to coordinate each task." },
-            { "title": "Proactive stewardship", "body": "Monitoring, preventive maintenance and planned reviews, rather than waiting for something to break." }
-          ] },
-        { "type": "cards", "eyebrow": "Who we serve", "h2": "For those who carry responsibility for others",
-          "cols": 4, "link": { "label": "Who we serve", "href": "who-we-serve.html" },
+            {
+              "title": "A single accountable relationship",
+              "body": "One clearly identified person owns coordination, even when several specialists or vendors are needed behind the scenes."
+            },
+            {
+              "title": "Everything in your agreement, managed",
+              "body": "Within the package you choose, the work is owned end to end. You are not asked to coordinate each task."
+            },
+            {
+              "title": "Proactive stewardship",
+              "body": "Monitoring, preventive maintenance and planned reviews, rather than waiting for something to break."
+            }
+          ]
+        },
+        {
+          "type": "responsibility",
+          "image": "door",
+          "eyebrow": "The concierge experience (proposed)",
+          "h2": "Less coordination for you. Clear ownership of the work.",
+          "intro": "When several vendors are involved, responsibility should still be easy to follow.",
+          "items": [
+            {
+              "title": "You bring the need",
+              "body": "One relationship owner receives your request and confirms what falls within the agreement."
+            },
+            {
+              "title": "We coordinate the included work",
+              "body": "Relevant specialists and vendors are coordinated, with progress and the next step explained plainly."
+            },
+            {
+              "title": "You keep the decisions",
+              "body": "Your systems remain yours. Material changes, extra scope and access require the agreed approvals."
+            }
+          ],
+          "link": {
+            "label": "See the stewardship process",
+            "href": "approach.html"
+          }
+        },
+        {
+          "type": "cards",
+          "eyebrow": "Who we serve",
+          "h2": "For those who carry responsibility for others",
+          "cols": 4,
+          "link": {
+            "label": "Who we serve",
+            "href": "who-we-serve.html"
+          },
           "cards": [
-            { "title": "Businesses", "body": "Small and midsize organizations that want one accountable technology partner." },
-            { "title": "Executives and boards", "body": "Founders, owners, leadership teams and board members who need technology handled discreetly." },
-            { "title": "Private and family offices", "body": "Private clients, executive households and family offices, including multiple locations where contracted." },
-            { "title": "Trustees and governing bodies", "body": "Careful handling of confidential records, devices and access, with authority verified at every step." }
-          ] },
-        { "type": "cards", "dark": true, "eyebrow": "Service families (proposed)", "h2": "Four disciplines, one point of contact",
-          "cols": 4, "link": { "label": "Explore our services", "href": "services.html" },
+            {
+              "title": "Businesses",
+              "body": "Small and midsize organizations that want one accountable technology partner.",
+              "href": "who-we-serve.html#business"
+            },
+            {
+              "title": "Executives and boards",
+              "body": "Founders, owners, leadership teams and board members who need technology handled discreetly.",
+              "href": "who-we-serve.html#business"
+            },
+            {
+              "title": "Private and family offices",
+              "body": "Private clients, executive households and family offices, including multiple locations where contracted.",
+              "href": "who-we-serve.html#private"
+            },
+            {
+              "title": "Trustees and governing bodies",
+              "body": "Careful handling of confidential records, devices and access, with authority verified at every step.",
+              "href": "who-we-serve.html#governance"
+            }
+          ]
+        },
+        {
+          "type": "cards",
+          "dark": true,
+          "eyebrow": "Service families (proposed)",
+          "h2": "Four disciplines, one point of contact",
+          "cols": 4,
+          "link": {
+            "label": "Explore our services",
+            "href": "services.html"
+          },
           "cards": [
-            { "label": "SV · Concierge", "title": "Personal coordination", "body": "Relationship management, executive support, vendor coordination and clear service communication." },
-            { "label": "SV · Guardian", "title": "Protective oversight", "body": "Security hygiene, identity and access practices, monitoring, incident coordination and recovery planning." },
-            { "label": "SV · Infrastructure", "title": "Technical management", "body": "Devices, networks, cloud environments, maintenance, inventory and lifecycle management." },
-            { "label": "SV · Advisory", "title": "Strategic guidance", "body": "Technology planning, procurement advice, executive briefings, budgeting input and governance support." }
-          ] },
-        { "type": "steps", "eyebrow": "How it works", "h2": "A clear path from first conversation to steady stewardship",
+            {
+              "label": "SV · Concierge",
+              "title": "Personal coordination",
+              "body": "Relationship management, executive support, vendor coordination and clear service communication."
+            },
+            {
+              "label": "SV · Guardian",
+              "title": "Protective oversight",
+              "body": "Security hygiene, identity and access practices, monitoring, incident coordination and recovery planning."
+            },
+            {
+              "label": "SV · Infrastructure",
+              "title": "Technical management",
+              "body": "Devices, networks, cloud environments, maintenance, inventory and lifecycle management."
+            },
+            {
+              "label": "SV · Advisory",
+              "title": "Strategic guidance",
+              "body": "Technology planning, procurement advice, executive briefings, budgeting input and governance support."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "eyebrow": "How it works",
+          "h2": "A clear path from first conversation to steady stewardship",
           "steps": [
-            { "title": "Discover", "body": "A discreet conversation about your people, locations, systems and concerns." },
-            { "title": "Define", "body": "What is included, excluded and conditional, written down before work begins." },
-            { "title": "Onboard", "body": "Secure access, an agreed inventory and a named relationship owner." },
-            { "title": "Steward", "body": "Proactive care and coordination, with updates at the cadence you prefer." },
-            { "title": "Review", "body": "Regular reviews in plain language; scope adjusted only by written agreement." }
-          ] },
-        { "type": "split", "image": "guardian", "eyebrow": "Security & privacy", "h2": "Protection described honestly",
-          "paras": ["Protection, privacy and reliability sit at the centre of the service. We describe the safeguards that are actually in your agreement, and we never promise that nothing can go wrong. When something does, you hear what is known, what is not yet known and what happens next."],
-          "link": { "label": "How we approach security and privacy", "href": "security.html" } },
-        { "type": "note", "title": "What \"everything\" means here",
-          "body": "When we say we take care of everything, we mean everything included in the agreement you choose: defined, documented and never unlimited. You keep ownership of your systems, your decisions and your approvals." },
-        { "type": "cta" }
+            {
+              "title": "Discover",
+              "body": "A discreet conversation about your people, locations, systems and concerns."
+            },
+            {
+              "title": "Define",
+              "body": "What is included, excluded and conditional, written down before work begins."
+            },
+            {
+              "title": "Onboard",
+              "body": "Secure access, an agreed inventory and a named relationship owner."
+            },
+            {
+              "title": "Steward",
+              "body": "Proactive care and coordination, with updates at the cadence you prefer."
+            },
+            {
+              "title": "Review",
+              "body": "Regular reviews in plain language; scope adjusted only by written agreement."
+            }
+          ]
+        },
+        {
+          "type": "split",
+          "image": "guardian",
+          "eyebrow": "Security & privacy",
+          "h2": "Protection described honestly",
+          "paras": [
+            "Protection, privacy and reliability sit at the centre of the service. We describe the safeguards that are actually in your agreement, and we never promise that nothing can go wrong. When something does, you hear what is known, what is not yet known and what happens next."
+          ],
+          "link": {
+            "label": "How we approach security and privacy",
+            "href": "security.html"
+          }
+        },
+        {
+          "type": "note",
+          "title": "What \"everything\" means here",
+          "body": "When we say we take care of everything, we mean everything included in the agreement you choose: defined, documented and never unlimited. You keep ownership of your systems, your decisions and your approvals."
+        },
+        {
+          "type": "cta"
+        }
       ]
     },
     {
       "file": "services.html",
       "title": "Services · Sovereign Vanguard",
       "description": "Concierge, Guardian, Infrastructure and Advisory: four proposed service families and four proposed packages, each defined by a written agreement.",
-      "hero": { "eyebrow": "Services", "h1": "Your technology. Our responsibility.",
-        "lede": "Four disciplines delivered through one relationship. You choose a package; your agreement defines exactly what we take care of.", "image": "keystone" },
+      "hero": {
+        "eyebrow": "Services",
+        "h1": "Your technology. Our responsibility.",
+        "lede": "Four disciplines delivered through one relationship. You choose a package; your agreement defines exactly what we take care of.",
+        "image": "keystone"
+      },
       "sections": [
-        { "type": "families", "eyebrow": "Service families (proposed)", "h2": "What we manage",
+        {
+          "type": "families",
+          "eyebrow": "Service families (proposed)",
+          "h2": "What we manage",
           "intro": "These are working service families, not yet final service lines. Every activity is subject to the scope of your package.",
           "items": [
-            { "label": "SV · Concierge", "title": "Personal client service and coordination", "list": ["Client relationship management", "Executive technology assistance", "Vendor coordination", "Service communication you can read in a minute"] },
-            { "label": "SV · Guardian", "title": "Protective oversight", "list": ["Security hygiene and secure configuration", "Identity and access practices", "Monitoring and incident coordination", "Backup and recovery planning"] },
-            { "label": "SV · Infrastructure", "title": "Technical management", "list": ["Computers, phones and other endpoints", "Networks and cloud environments", "Systems maintenance and patching", "Inventory and lifecycle management"] },
-            { "label": "SV · Advisory", "title": "Strategic guidance", "list": ["Technology planning", "Procurement advice", "Executive briefings and budgeting input", "Governance support"] }
-          ] },
-        { "type": "packages", "eyebrow": "Packages (proposed)", "h2": "Four levels of stewardship",
+            {
+              "label": "SV · Concierge",
+              "title": "Personal client service and coordination",
+              "list": [
+                "Client relationship management",
+                "Executive technology assistance",
+                "Vendor coordination",
+                "Service communication you can read in a minute"
+              ]
+            },
+            {
+              "label": "SV · Guardian",
+              "title": "Protective oversight",
+              "list": [
+                "Security hygiene and secure configuration",
+                "Identity and access practices",
+                "Monitoring and incident coordination",
+                "Backup and recovery planning"
+              ]
+            },
+            {
+              "label": "SV · Infrastructure",
+              "title": "Technical management",
+              "list": [
+                "Computers, phones and other endpoints",
+                "Networks and cloud environments",
+                "Systems maintenance and patching",
+                "Inventory and lifecycle management"
+              ]
+            },
+            {
+              "label": "SV · Advisory",
+              "title": "Strategic guidance",
+              "list": [
+                "Technology planning",
+                "Procurement advice",
+                "Executive briefings and budgeting input",
+                "Governance support"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "packages",
+          "eyebrow": "Packages (proposed)",
+          "h2": "Four levels of stewardship",
           "intro": "Each level adds scope, access, coordination or governance; every client receives the same respect. Names and inclusions are proposals. Your agreement, not this page, sets what is included, along with service hours, response times and fees.",
           "items": [
-            { "name": "Sovereign Essential", "sub": "Foundational Stewardship", "for": "Businesses that need their core technology professionally managed.", "list": ["Managed support and monitoring", "Baseline security", "Routine maintenance", "Defined help desk support and service reporting"] },
-            { "name": "Sovereign Executive", "sub": "White-Glove Concierge", "for": "Executives and businesses that want elevated, personal service.", "list": ["Everything in Essential", "A designated advisor", "Priority coordination", "Executive device assistance and vendor management within agreed boundaries"] },
-            { "name": "Sovereign Private", "sub": "Private Technology Office", "for": "Private clients, households and family offices.", "list": ["Executive-level service", "Contracted personal-device support", "Oversight across properties or locations", "Privacy assistance and personal technology planning"] },
-            { "name": "Sovereign Vanguard Reserve", "sub": "Comprehensive Private Management", "for": "Complex businesses, estates, family offices, trusts and boards.", "list": ["A custom statement of work", "Governance coordination and custom reporting", "Advanced continuity planning", "Tailored escalation and dedicated service management"] }
-          ] },
-        { "type": "two", "eyebrow": "Scope", "h2": "Clear about what is included, and what is not",
+            {
+              "name": "Sovereign Essential",
+              "sub": "Foundational Stewardship",
+              "for": "Businesses that need their core technology professionally managed.",
+              "list": [
+                "Managed support and monitoring",
+                "Baseline security",
+                "Routine maintenance",
+                "Defined help desk support and service reporting"
+              ]
+            },
+            {
+              "name": "Sovereign Executive",
+              "sub": "White-Glove Concierge",
+              "for": "Executives and businesses that want elevated, personal service.",
+              "list": [
+                "Everything in Essential",
+                "A designated advisor",
+                "Priority coordination",
+                "Executive device assistance and vendor management within agreed boundaries"
+              ]
+            },
+            {
+              "name": "Sovereign Private",
+              "sub": "Private Technology Office",
+              "for": "Private clients, households and family offices.",
+              "list": [
+                "Executive-level service",
+                "Contracted personal-device support",
+                "Oversight across properties or locations",
+                "Privacy assistance and personal technology planning"
+              ]
+            },
+            {
+              "name": "Sovereign Vanguard Reserve",
+              "sub": "Comprehensive Private Management",
+              "for": "Complex businesses, estates, family offices, trusts and boards.",
+              "list": [
+                "A custom statement of work",
+                "Governance coordination and custom reporting",
+                "Advanced continuity planning",
+                "Tailored escalation and dedicated service management"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "two",
+          "eyebrow": "Scope",
+          "h2": "Clear about what is included, and what is not",
           "cols": [
-            { "title": "Always written down", "list": ["Covered people, devices, locations and services", "Service hours and response expectations", "Who may instruct us and who approves changes", "Vendor dependencies and pass-through costs"] },
-            { "title": "Not included unless agreed", "list": ["Work outside your selected package", "New projects, equipment purchases and expansions (handled by change order)", "Obligations owed by third-party vendors", "Legal, investment or fiduciary advice of any kind"] }
-          ] },
-        { "type": "cta" }
+            {
+              "title": "Always written down",
+              "list": [
+                "Covered people, devices, locations and services",
+                "Service hours and response expectations",
+                "Who may instruct us and who approves changes",
+                "Vendor dependencies and pass-through costs"
+              ]
+            },
+            {
+              "title": "Not included unless agreed",
+              "list": [
+                "Work outside your selected package",
+                "New projects, equipment purchases and expansions (handled by change order)",
+                "Obligations owed by third-party vendors",
+                "Legal, investment or fiduciary advice of any kind"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "cta"
+        }
       ]
     },
     {
       "file": "who-we-serve.html",
       "title": "Who We Serve · Sovereign Vanguard",
       "description": "Businesses and executives, private clients and family offices, trustees and boards: one accountable technology partner for each.",
-      "hero": { "eyebrow": "Who we serve", "h1": "Discreet care for the people and organizations entrusted to you.",
-        "lede": "Our clients carry responsibility for businesses, families and records. We take the technology off their list, within the agreement they choose.", "image": "door" },
+      "hero": {
+        "eyebrow": "Who we serve",
+        "h1": "Discreet care for the people and organizations entrusted to you.",
+        "lede": "Our clients carry responsibility for businesses, families and records. We take the technology off their list, within the agreement they choose.",
+        "image": "door"
+      },
       "sections": [
-        { "type": "audience", "eyebrow": "Commercial and executive", "h2": "Businesses, founders and leadership teams",
-          "paras": ["Small and midsize organizations, owners, executive teams and board members who want one accountable partner across routine operations and higher-trust work."],
-          "list": ["One relationship owner instead of a ticket queue", "Vendors coordinated on your behalf", "Executive devices and travel handled with care, where contracted", "Plain-language reviews that are ready for decisions"] },
-        { "type": "audience", "eyebrow": "Private and high-net-worth", "h2": "Private clients, households and family offices",
-          "paras": ["Personal devices, homes and private offices looked after with the discretion you would expect of a private bank, and only where your agreement includes them."],
-          "list": ["Authorized household members agreed in advance", "Personal and business devices kept clearly apart", "Oversight across properties or locations, where contracted", "Privacy assistance and personal technology planning"] },
-        { "type": "audience", "eyebrow": "Trusts and governance", "h2": "Trustees, fiduciaries and boards",
-          "paras": ["Offices that manage confidential records, devices, communications and access, where care about who may see what matters as much as the technology itself."],
-          "list": ["Authority to instruct us verified and recorded", "Sensitive reports shared only with those authorized to receive them", "Approvals and record keeping aligned with your governance"] },
-        { "type": "note", "title": "A note for trustees and boards",
-          "body": "A trust or board role does not by itself grant access to systems, records or beneficiary information; we verify identity, authority and permissions first. Sovereign Vanguard provides technology services only. We are not your legal counsel, trustee or fiduciary, and nothing we do is legal, investment or fiduciary advice." },
-        { "type": "cta" }
+        {
+          "type": "audience",
+          "eyebrow": "Commercial and executive",
+          "h2": "Businesses, founders and leadership teams",
+          "paras": [
+            "Small and midsize organizations, owners, executive teams and board members who want one accountable partner across routine operations and higher-trust work."
+          ],
+          "list": [
+            "One relationship owner instead of a ticket queue",
+            "Vendors coordinated on your behalf",
+            "Executive devices and travel handled with care, where contracted",
+            "Plain-language reviews that are ready for decisions"
+          ],
+          "id": "business"
+        },
+        {
+          "type": "audience",
+          "eyebrow": "Private and high-net-worth",
+          "h2": "Private clients, households and family offices",
+          "paras": [
+            "Personal devices, homes and private offices looked after with the discretion you would expect of a private bank, and only where your agreement includes them."
+          ],
+          "list": [
+            "Authorized household members agreed in advance",
+            "Personal and business devices kept clearly apart",
+            "Oversight across properties or locations, where contracted",
+            "Privacy assistance and personal technology planning"
+          ],
+          "id": "private"
+        },
+        {
+          "type": "audience",
+          "eyebrow": "Trusts and governance",
+          "h2": "Trustees, fiduciaries and boards",
+          "paras": [
+            "Offices that manage confidential records, devices, communications and access, where care about who may see what matters as much as the technology itself."
+          ],
+          "list": [
+            "Authority to instruct us verified and recorded",
+            "Sensitive reports shared only with those authorized to receive them",
+            "Approvals and record keeping aligned with your governance"
+          ],
+          "id": "governance"
+        },
+        {
+          "type": "note",
+          "title": "A note for trustees and boards",
+          "body": "A trust or board role does not by itself grant access to systems, records or beneficiary information; we verify identity, authority and permissions first. Sovereign Vanguard provides technology services only. We are not your legal counsel, trustee or fiduciary, and nothing we do is legal, investment or fiduciary advice."
+        },
+        {
+          "type": "cta"
+        }
       ]
     },
     {
       "file": "approach.html",
       "title": "Our Approach · Sovereign Vanguard",
       "description": "The Sovereign Standard: personal stewardship, proactive protection, concierge coordination, complete management within scope, discretion and accountability.",
-      "hero": { "eyebrow": "Our approach", "h1": "A private technology office, delivered as a managed service.",
-        "lede": "You should receive decisions, outcomes and concise communication, not a pile of tickets and vendor hand-offs.", "image": "keystone" },
+      "hero": {
+        "eyebrow": "Our approach",
+        "h1": "A private technology office, delivered as a managed service.",
+        "lede": "You should receive decisions, outcomes and concise communication, not a pile of tickets and vendor hand-offs.",
+        "image": "keystone"
+      },
       "sections": [
-        { "type": "cards", "eyebrow": "The Sovereign Standard (proposed)", "h2": "Six commitments behind every agreement", "cols": 3,
+        {
+          "type": "cards",
+          "eyebrow": "The Sovereign Standard (proposed)",
+          "h2": "Six commitments behind every agreement",
+          "cols": 3,
           "cards": [
-            { "title": "Personal stewardship", "body": "An accountable relationship owner is assigned to you." },
-            { "title": "Proactive protection", "body": "Contracted monitoring and risk reduction run continuously or at agreed intervals." },
-            { "title": "Concierge experience", "body": "We coordinate and communicate instead of sending you between teams." },
-            { "title": "Complete management", "body": "Work within your package is owned from start to finish." },
-            { "title": "Discretion and privacy", "body": "Access and information are controlled and kept confidential." },
-            { "title": "Accountability", "body": "Commitments, escalations and outcomes are documented." }
-          ] },
-        { "type": "steps", "eyebrow": "The client journey", "h2": "How a relationship unfolds",
+            {
+              "title": "Personal stewardship",
+              "body": "An accountable relationship owner is assigned to you."
+            },
+            {
+              "title": "Proactive protection",
+              "body": "Contracted monitoring and risk reduction run continuously or at agreed intervals."
+            },
+            {
+              "title": "Concierge experience",
+              "body": "We coordinate and communicate instead of sending you between teams."
+            },
+            {
+              "title": "Complete management",
+              "body": "Work within your package is owned from start to finish."
+            },
+            {
+              "title": "Discretion and privacy",
+              "body": "Access and information are controlled and kept confidential."
+            },
+            {
+              "title": "Accountability",
+              "body": "Commitments, escalations and outcomes are documented."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "eyebrow": "The client journey",
+          "h2": "How a relationship unfolds",
           "steps": [
-            { "title": "Discover", "body": "A discreet enquiry and a confidential first conversation. We confirm who may contract and decide." },
-            { "title": "Define", "body": "With your permission, we take stock of systems, vendors and risks, then record what is included, excluded and conditional." },
-            { "title": "Onboard", "body": "Agreement signed, relationship owner named, access set up securely with least privilege, and a baseline inventory agreed." },
-            { "title": "Steward", "body": "Requests and events are triaged, coordinated and resolved, with status at the cadence you choose." },
-            { "title": "Review", "body": "Regular reviews of activity, risks and priorities, in plain language. Scope changes only by written agreement." }
-          ] },
-        { "type": "split", "image": "keystone", "reverse": true, "eyebrow": "One point of contact", "h2": "Many specialists. One person who answers for them.",
-          "paras": ["Behind a well-run environment there may be several specialists, manufacturers and service providers. You should not have to manage them. Your relationship owner coordinates the work, confirms with you before any material change, and keeps an audit trail of what was done and why.", "If you ever decide to leave, the exit is planned too: your records exported, credentials and assets handed over securely, and our access removed and documented."] },
-        { "type": "cta" }
+            {
+              "title": "Discover",
+              "body": "A discreet enquiry and a confidential first conversation. We confirm who may contract and decide."
+            },
+            {
+              "title": "Define",
+              "body": "With your permission, we take stock of systems, vendors and risks, then record what is included, excluded and conditional."
+            },
+            {
+              "title": "Onboard",
+              "body": "Agreement signed, relationship owner named, access set up securely with least privilege, and a baseline inventory agreed."
+            },
+            {
+              "title": "Steward",
+              "body": "Requests and events are triaged, coordinated and resolved, with status at the cadence you choose."
+            },
+            {
+              "title": "Review",
+              "body": "Regular reviews of activity, risks and priorities, in plain language. Scope changes only by written agreement."
+            }
+          ]
+        },
+        {
+          "type": "split",
+          "image": "keystone",
+          "reverse": true,
+          "eyebrow": "One point of contact",
+          "h2": "Many specialists. One person who answers for them.",
+          "paras": [
+            "Behind a well-run environment there may be several specialists, manufacturers and service providers. You should not have to manage them. Your relationship owner coordinates the work, confirms with you before any material change, and keeps an audit trail of what was done and why.",
+            "If you ever decide to leave, the exit is planned too: your records exported, credentials and assets handed over securely, and our access removed and documented."
+          ]
+        },
+        {
+          "type": "cta"
+        }
       ]
     },
     {
       "file": "security.html",
       "title": "Security & Privacy · Sovereign Vanguard",
       "description": "How Sovereign Vanguard approaches protection, privacy and incidents: practices defined in each agreement, with no absolute promises.",
-      "hero": { "eyebrow": "Security & privacy", "h1": "Uncompromising protection, described honestly.",
-        "lede": "Your agreement sets out the safeguards that apply to you. Here is how we think about them.", "image": "guardian" },
+      "hero": {
+        "eyebrow": "Security & privacy",
+        "h1": "Uncompromising protection, described honestly.",
+        "lede": "Your agreement sets out the safeguards that apply to you. Here is how we think about them.",
+        "image": "guardian"
+      },
       "sections": [
-        { "type": "cards", "eyebrow": "Practices (proposed)", "h2": "What our protection is built around", "cols": 3,
+        {
+          "type": "cards",
+          "eyebrow": "Practices (proposed)",
+          "h2": "What our protection is built around",
+          "cols": 3,
           "draft": "Draft for the concept. The final list will name only the controls in operation at launch.",
           "cards": [
-            { "title": "Access, deliberately", "body": "Multifactor authentication and least-privilege access for client and provider accounts, reviewed regularly." },
-            { "title": "Separation", "body": "Client environments kept apart, with privileged access managed with care." },
-            { "title": "Known and maintained", "body": "Device and software inventory, patching, endpoint protection and secure configuration." },
-            { "title": "Recoverable", "body": "Clear ownership of backups, agreed recovery objectives and restore testing." },
-            { "title": "Vendors checked", "body": "Due diligence on third parties, and your explicit approval before data is shared." },
-            { "title": "Changes approved", "body": "Your written approval before material, disruptive or higher-risk changes." }
-          ] },
-        { "type": "split", "image": "door", "eyebrow": "When something happens", "h2": "Calm, factual, timely",
-          "paras": ["Incidents are classified and escalated according to your agreement. You are told what is known, what is not yet known and what happens next, without speculation. Evidence is preserved, and the people you have authorized are kept informed."] },
-        { "type": "two", "eyebrow": "Plain limits", "h2": "What we will not claim",
+            {
+              "title": "Access, deliberately",
+              "body": "Multifactor authentication and least-privilege access for client and provider accounts, reviewed regularly."
+            },
+            {
+              "title": "Separation",
+              "body": "Client environments kept apart, with privileged access managed with care."
+            },
+            {
+              "title": "Known and maintained",
+              "body": "Device and software inventory, patching, endpoint protection and secure configuration."
+            },
+            {
+              "title": "Recoverable",
+              "body": "Clear ownership of backups, agreed recovery objectives and restore testing."
+            },
+            {
+              "title": "Vendors checked",
+              "body": "Due diligence on third parties, and your explicit approval before data is shared."
+            },
+            {
+              "title": "Changes approved",
+              "body": "Your written approval before material, disruptive or higher-risk changes."
+            }
+          ]
+        },
+        {
+          "type": "split",
+          "image": "door",
+          "eyebrow": "When something happens",
+          "h2": "Calm, factual, timely",
+          "paras": [
+            "Incidents are classified and escalated according to your agreement. You are told what is known, what is not yet known and what happens next, without speculation. Evidence is preserved, and the people you have authorized are kept informed."
+          ]
+        },
+        {
+          "type": "two",
+          "eyebrow": "Plain limits",
+          "h2": "What we will not claim",
           "cols": [
-            { "title": "No absolute promises", "list": ["No one can guarantee that every incident is prevented", "No promise of total privacy or perfect uptime", "No round-the-clock human response unless your agreement includes it"] },
-            { "title": "No borrowed credentials", "list": ["We list certifications and compliance status only once they are held", "Regulated obligations are reviewed with your own advisers", "Technology services are not legal, investment or fiduciary advice"] }
-          ] },
-        { "type": "cta" }
+            {
+              "title": "No absolute promises",
+              "list": [
+                "No one can guarantee that every incident is prevented",
+                "No promise of total privacy or perfect uptime",
+                "No round-the-clock human response unless your agreement includes it"
+              ]
+            },
+            {
+              "title": "No borrowed credentials",
+              "list": [
+                "We list certifications and compliance status only once they are held",
+                "Regulated obligations are reviewed with your own advisers",
+                "Technology services are not legal, investment or fiduciary advice"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "cta"
+        }
       ]
     },
     {
       "file": "about.html",
       "title": "About · Sovereign Vanguard",
       "description": "Sovereign Vanguard is a private technology management firm with an executive concierge experience. A Scalable Studio company.",
-      "hero": { "eyebrow": "About", "h1": "Quiet authority. Personal care.",
-        "lede": "A private technology management firm with an executive concierge experience.", "image": "door" },
+      "hero": {
+        "eyebrow": "About",
+        "h1": "Quiet authority. Personal care.",
+        "lede": "A private technology management firm with an executive concierge experience.",
+        "image": "door"
+      },
       "sections": [
-        { "type": "intro", "eyebrow": "Why we exist", "h2": "To lift the burden of managing technology",
-          "paras": ["Sovereign Vanguard was founded to relieve clients of the burden of coordinating and managing technology, by taking clear, proactive responsibility for the services entrusted to us.", "We combine the discretion of a private bank, the attention of a fine hotel and the competence of a capable managed service provider, and we are precise about the limits of what we promise."] },
-        { "type": "values", "eyebrow": "What we hold to", "h2": "Our values",
-          "list": ["Discretion", "Stewardship", "Vigilance", "Competence", "Calm authority", "Accountability", "Continuity", "Hospitality", "Clarity", "Respect for your autonomy"] },
-        { "type": "note", "title": "Leadership",
-          "body": "Profiles of the people behind Sovereign Vanguard will appear here once they are confirmed. We will only ever show real people, with expertise you can verify." },
-        { "type": "intro", "eyebrow": "Our family", "h2": "A Scalable Studio company",
-          "paras": ["Sovereign Vanguard is part of Scalable Studio."], "link": { "label": "Visit Scalable Studio", "href": "https://scalablestudio.online/" } },
-        { "type": "cta" }
+        {
+          "type": "intro",
+          "eyebrow": "Why we exist",
+          "h2": "To lift the burden of managing technology",
+          "paras": [
+            "Sovereign Vanguard is being developed to relieve clients of the burden of coordinating and managing technology, by taking clear, proactive responsibility for the services entrusted to us.",
+            "We combine the discretion of a private bank, the attention of a fine hotel and the competence of a capable managed service provider, and we are precise about the limits of what we promise."
+          ]
+        },
+        {
+          "type": "values",
+          "eyebrow": "What we hold to",
+          "h2": "Our values",
+          "list": [
+            "Discretion",
+            "Stewardship",
+            "Vigilance",
+            "Competence",
+            "Calm authority",
+            "Accountability",
+            "Continuity",
+            "Hospitality",
+            "Clarity",
+            "Respect for your autonomy"
+          ]
+        },
+        {
+          "type": "note",
+          "title": "Leadership",
+          "body": "Profiles of the people behind Sovereign Vanguard will appear here once they are confirmed. We will only ever show real people, with expertise you can verify."
+        },
+        {
+          "type": "intro",
+          "eyebrow": "Our family",
+          "h2": "A Scalable Studio company",
+          "paras": [
+            "Sovereign Vanguard is part of Scalable Studio."
+          ],
+          "link": {
+            "label": "Visit Scalable Studio",
+            "href": "https://scalablestudio.online/"
+          }
+        },
+        {
+          "type": "cta"
+        }
       ]
     },
     {
       "file": "contact.html",
       "title": "Request a Private Consultation · Sovereign Vanguard",
-      "description": "Request a private, confidential consultation with Sovereign Vanguard. No obligation.",
-      "hero": { "eyebrow": "Contact", "h1": "Request a private consultation.",
-        "lede": "A short, confidential conversation about your needs. No obligation." },
+      "description": "Preview the proposed consultation experience. This concept form does not send or save enquiries.",
+      "hero": {
+        "eyebrow": "Contact",
+        "h1": "Request a private consultation.",
+        "lede": "Explore the proposed first conversation. This preview does not send an enquiry."
+      },
       "sections": [
-        { "type": "form",
-          "h2": "Tell us a little about you",
-          "privacy": "Please do not include passwords, account numbers or sensitive records. We will ask for anything we need through a secure route once we have spoken.",
-          "conceptMessage": "Concept preview: this form is not connected yet, so nothing was sent. The enquiry route is still to be decided.",
+        {
+          "type": "form",
+          "h2": "Preview the first step",
+          "privacy": "Use sample details only. Do not enter passwords, account numbers or sensitive records. This demonstration has no enquiry destination.",
+          "conceptMessage": "Preview complete. Nothing was sent or saved by this page. The real enquiry route is still to be agreed.",
           "next": [
-            { "title": "We reply personally", "body": "A member of the team, not an automated sequence, will be in touch to arrange a time." },
-            { "title": "A confidential conversation", "body": "We listen to your situation and concerns; nothing is assumed and nothing is sold on the call." },
-            { "title": "A written proposal, if it fits", "body": "If we can serve you well, you receive a clear scope to consider. If we cannot, we will say so." }
+            {
+              "title": "A personal reply (proposed)",
+              "body": "Once a real enquiry route is approved, a named contact would arrange a conversation. No response time or staffing commitment is set here."
+            },
+            {
+              "title": "A confidential conversation",
+              "body": "We listen to your situation and concerns; nothing is assumed and nothing is sold on the call."
+            },
+            {
+              "title": "A written proposal, if it fits",
+              "body": "If we can serve you well, you receive a clear scope to consider. If we cannot, we will say so."
+            }
           ],
-          "options": ["A business or organization", "An executive or leadership team", "A private client, household or family office", "A trust, board or governing body", "Something else"] }
+          "options": [
+            "A business or organization",
+            "An executive or leadership team",
+            "A private client, household or family office",
+            "A trust, board or governing body",
+            "Something else"
+          ]
+        }
       ]
     },
     {
       "file": "legal.html",
       "title": "Privacy, Terms and Accessibility · Sovereign Vanguard",
       "description": "Privacy policy, terms of use and accessibility statement for the Sovereign Vanguard website.",
-      "hero": { "eyebrow": "Legal", "h1": "Privacy, terms and accessibility." },
+      "hero": {
+        "eyebrow": "Legal",
+        "h1": "Privacy, terms and accessibility."
+      },
       "sections": [
-        { "type": "legal",
+        {
+          "type": "legal",
           "draft": "Draft for the concept. Final wording follows legal review and will name the correct legal entity.",
           "parts": [
-            { "id": "privacy", "h2": "Privacy", "paras": ["This website does not use advertising trackers. If you send an enquiry, we use what you tell us only to respond to you and to prepare any proposal you ask for.", "Please do not send passwords, account numbers or sensitive records through this website."] },
-            { "id": "terms", "h2": "Terms of use", "paras": ["The information on this website is general. It is not an offer of service, and it is not legal, investment or fiduciary advice. Services are provided only under a signed agreement that sets out what is included."] },
-            { "id": "accessibility", "h2": "Accessibility", "paras": ["We aim for this website to meet the Web Content Accessibility Guidelines (WCAG) 2.2 at level AA: it works with a keyboard, with screen readers, at 320 px wide and when zoomed. If anything is difficult to use, please tell us through the contact page and we will help."] }
-          ] }
+            {
+              "id": "privacy",
+              "h2": "Privacy",
+              "paras": [
+                "This concept does not send or save form entries and uses no advertising trackers. Google Fonts is requested by your browser to display the proposed typefaces. Before launch, the final privacy notice must describe the actual enquiry provider, recipients, retention and legal operator.",
+                "Please do not send passwords, account numbers or sensitive records through this website."
+              ]
+            },
+            {
+              "id": "terms",
+              "h2": "Terms of use",
+              "paras": [
+                "The information on this website is general. It is not an offer of service, and it is not legal, investment or fiduciary advice. Services are provided only under a signed agreement that sets out what is included."
+              ]
+            },
+            {
+              "id": "accessibility",
+              "h2": "Accessibility",
+              "paras": [
+                "We aim for this website to meet the Web Content Accessibility Guidelines (WCAG) 2.2 at level AA: it works with a keyboard, with screen readers, at 320 px wide and when zoomed. If anything is difficult to use, please tell us through the contact page and we will help."
+              ]
+            }
+          ]
+        }
       ]
     }
-  ]
+  ],
+  "enquiry": {
+    "mode": "preview",
+    "noticeTitle": "Try the consultation preview",
+    "notice": "This form is a demonstration. Nothing is sent or saved by this page. Use sample details only; the real enquiry route is still to be agreed.",
+    "button": "Preview request",
+    "noScript": "The form preview needs JavaScript. It is disabled here and cannot send a request."
+  }
 }

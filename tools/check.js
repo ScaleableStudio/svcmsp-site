@@ -15,8 +15,9 @@ const axeSource = fs.readFileSync(path.join(tools, 'node_modules/axe-core/axe.mi
 const site = path.join(root, 'site');
 const review = path.join(root, 'review');
 fs.mkdirSync(review, { recursive: true });
-const widths = [1440, 768, 390];
-const budget = 1.5 * 1024 * 1024;
+const qa = JSON.parse(fs.readFileSync(path.join(root, 'qa.json'), 'utf8'));
+const widths = qa.widths;
+const budget = qa.pageBudgetBytes;
 
 (async () => {
   const browser = await chromium.launch({ headless: true });
@@ -26,22 +27,25 @@ const budget = 1.5 * 1024 * 1024;
     for (const pg of s.pages.map(x => x.file).concat('404.html')) {
       for (const w of widths) {
         const page = await browser.newPage({ viewport: { width: w, height: 900 } });
-        const failed = [], errors = [], aborted = []; let bytes = 0;
-        page.on('requestfailed', r => { const why = (r.failure() || {}).errorText || ''; if (/ERR_ABORTED/.test(why) && fs.existsSync(require('url').fileURLToPath(r.url()))) aborted.push(r.url()); else failed.push(r.url() + ' ' + why); });
+        const failed = [], errors = [], aborted = [], transfers = []; let bytes = 0;
+        page.on('requestfailed', r => { const why = (r.failure() || {}).errorText || ''; if (/ERR_ABORTED/.test(why) && r.url().startsWith('file:') && fs.existsSync(require('url').fileURLToPath(r.url()))) aborted.push(r.url()); else failed.push(r.url() + ' ' + why); });
         page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
-        page.on('response', async r => { try { bytes += (await r.body()).length; } catch {} });
+        page.on('response', r => { transfers.push(r.body().then(body => { bytes += body.length; }).catch(() => {})); });
         await page.goto(pathToFileURL(path.join(site, pg)).href, { waitUntil: 'networkidle' });
         await page.evaluate(async () => { await document.fonts.ready; for (const i of document.images) { i.loading = 'eager'; await i.decode().catch(() => {}); } });
         await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight)); await page.waitForTimeout(300); await page.evaluate(() => window.scrollTo(0, 0));
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+        const brokenImages = await page.evaluate(() => Array.from(document.images).filter(i => !i.complete || !i.naturalWidth).map(i => i.currentSrc));
+        await Promise.all(transfers);
         await page.addScriptTag({ content: axeSource });
         const axe = await page.evaluate(async () => (await axe.run(document, { runOnly: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] })).violations
           .map(v => ({ id: v.id, impact: v.impact, nodes: v.nodes.map(n => n.target.join(' ') + ' | ' + (n.failureSummary || '').split('\n')[1]).slice(0, 4) })));
         const shot = `${pg.replace('.html', '')}-${w}.png`;
         await page.screenshot({ path: path.join(review, shot), fullPage: true });
-        const r = { page: pg, width: w, overflow, failed, aborted, errors, axe, screenshot: shot, bytes };
+        const r = { page: pg, width: w, overflow, failed, aborted, errors, brokenImages, axe, screenshot: shot, bytes };
         console.log(`${pg} @${w}: overflow=${overflow} failed=${failed.length} console=${errors.length} axe=${axe.length} ${(bytes / 1024).toFixed(0)} KB`);
         if (overflow) fail('horizontal overflow');
+        if (brokenImages.length) fail('broken images ' + brokenImages.join(', '));
         if (failed.length) fail('failed requests ' + failed.join(', '));
         if (errors.length) fail('console errors ' + errors.join(' / '));
         for (const v of axe) fail(`axe ${v.id} (${v.impact}): ${v.nodes.join(' ; ')}`);
@@ -63,7 +67,7 @@ const budget = 1.5 * 1024 * 1024;
     console.log(`form: error on empty=${errShown}, message on complete=${okShown}, requests sent=${posts.length}`);
     if (!errShown || !okShown || posts.length) fail('enquiry form behaviour');
     await page.close();
-    fs.writeFileSync(path.join(review, 'checks.json'), JSON.stringify({ date: new Date().toISOString(), widths, failures, results }, null, 2) + '\n');
+    fs.writeFileSync(path.join(root, qa.report), JSON.stringify({ date: new Date().toISOString(), widths, failures, results }, null, 2) + '\n');
   } finally { await browser.close(); }
   console.log(failures ? `${failures} problem(s)` : 'all checks passed');
   process.exit(failures ? 1 : 0);
