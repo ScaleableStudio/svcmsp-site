@@ -1,5 +1,6 @@
-// Builds the Sovereign Vanguard concept page from site.json into site/ (static HTML, no packages).
+// Builds the Sovereign Vanguard concept site from site.json into site/ (static HTML, no packages).
 // Usage: node build.js     (GitHub Actions publishes site/ to Pages; see .github/workflows/pages.yml)
+// Images: assets/img/ (made by tools/make-images.js from the vision board). Checks: tools/check.js.
 'use strict';
 const fs = require('fs');
 const path = require('path');
@@ -10,58 +11,119 @@ if (s.concept === false) {
 }
 const esc = v => String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const p = s.palette;
+const img = s.images.set;
 const out = path.join(__dirname, 'site');
 fs.rmSync(out, { recursive: true, force: true });
-fs.mkdirSync(out, { recursive: true });
+fs.mkdirSync(path.join(out, 'img'), { recursive: true });
+for (const f of fs.readdirSync(path.join(__dirname, 'assets/img'))) fs.copyFileSync(path.join(__dirname, 'assets/img', f), path.join(out, 'img', f));
+const baseUrl = `https://${s.host}/`;
 
-const css = `:root{--navy:${p.navy};--gold:${p.gold};--ivory:${p.ivory};--slate:${p.slate};--muted:${p.muted};
---display:'${s.fonts.display}',Georgia,'Times New Roman',serif;--body:'${s.fonts.body}',system-ui,'Segoe UI',Arial,sans-serif}
-*{box-sizing:border-box}html,body{height:100%}
-body{margin:0;background:var(--navy);color:var(--ivory);font:400 17px/1.6 var(--body);display:flex;flex-direction:column}
-.concept{background:var(--gold);color:var(--navy);text-align:center;font:600 12px/1.4 var(--body);letter-spacing:.08em;padding:6px 12px}
-main{flex:1;display:grid;place-items:center;padding:clamp(48px,10vw,120px) 20px}
-.card{max-width:760px;text-align:center}
-.mark{width:72px;height:72px;margin:0 auto 28px;display:block}
-.eyebrow{font:600 12px/1.3 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 18px}
-h1{font:500 clamp(44px,8vw,84px)/1.05 var(--display);letter-spacing:.02em;margin:0}
-h1 span{color:var(--gold)}
-.rule{width:96px;height:1px;background:var(--gold);margin:30px auto}
-.statement{font:400 clamp(19px,2.2vw,22px)/1.55 var(--body);color:var(--ivory);margin:0 0 10px}
-.status{color:var(--muted);margin:0}
-footer{border-top:1px solid rgba(199,169,107,.35);padding:22px 20px;text-align:center;font-size:13px;color:var(--muted)}
-footer a{color:var(--ivory)}
-a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-`;
+// ---------- pieces ----------
 // Placeholder SV mark until the real monogram exists (punch list #10): two strokes in a keystone frame.
-const mark = `<svg class="mark" viewBox="0 0 72 72" role="img" aria-label="SV mark (placeholder)"><path d="M10 6h52v38L36 66 10 44z" fill="none" stroke="${p.gold}" stroke-width="2"/><path d="M27 22c-6 0-8 7-1 9l6 2c7 2 5 10-2 10" fill="none" stroke="${p.ivory}" stroke-width="2.4" stroke-linecap="round"/><path d="M38 22l7 21 7-21" fill="none" stroke="${p.gold}" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
+const markSvg = (cls, label) => `<svg${cls ? ` class="${cls}"` : ''} viewBox="0 0 72 72"${label ? ` role="img" aria-label="${label}"` : ' aria-hidden="true"'}><path d="M10 6h52v38L36 66 10 44z" fill="none" stroke="${p.champagne}" stroke-width="2"/><path d="M27 22c-6 0-8 7-1 9l6 2c7 2 5 10-2 10" fill="none" stroke="${p.ivory}" stroke-width="2.4" stroke-linecap="round"/><path d="M38 22l7 21 7-21" fill="none" stroke="${p.champagne}" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
+const srcset = key => img[key].widths.map(w => `img/${key}-${w}.webp ${w}w`).join(', ');
+const pic = (key, sizes, cls = '', eager = false) => {
+  const i = img[key], w = i.widths[i.widths.length - 1];
+  return `<img class="${cls}" src="img/${key}-${w}.webp" srcset="${srcset(key)}" sizes="${sizes}" width="${i.w}" height="${i.h}" alt="${esc(i.alt)}"${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}>`;
+};
+const btn = (l, h, cls = 'btn') => `<a class="${cls}" href="${esc(h)}">${esc(l)}</a>`;
+const textLink = l => l ? `<p class="more"><a href="${esc(l.href)}">${esc(l.label)} <span aria-hidden="true">→</span></a></p>` : '';
+const head = (eyebrow, h2, intro) => `${eyebrow ? `<p class="eyebrow">${esc(eyebrow)}</p>` : ''}<h2>${esc(h2)}</h2>${intro ? `<p class="lead">${esc(intro)}</p>` : ''}`;
+const ul = list => `<ul class="ticks">${list.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`;
+const cards = (items, cols) => `<div class="grid c${cols || items.length}">${items.map(c => `<div class="card">${c.label ? `<p class="label">${esc(c.label)}</p>` : ''}<h3>${esc(c.title)}</h3>${c.body ? `<p>${esc(c.body)}</p>` : ''}${c.list ? ul(c.list) : ''}</div>`).join('')}</div>`;
+const draft = t => t && s.concept ? `<p class="draft">${esc(t)}</p>` : '';
 
-const html = `<!doctype html>
+const sections = {
+  intro: x => `<section class="band"><div class="wrap narrow">${head(x.eyebrow, x.h2)}${x.paras.map(t => `<p class="lead">${esc(t)}</p>`).join('')}${x.cards ? cards(x.cards) : ''}${textLink(x.link)}</div></section>`,
+  cards: x => `<section class="band${x.dark ? ' dark' : ''}"><div class="wrap">${head(x.eyebrow, x.h2, x.intro)}${draft(x.draft)}${cards(x.cards, x.cols)}${textLink(x.link)}</div></section>`,
+  families: x => `<section class="band"><div class="wrap">${head(x.eyebrow, x.h2, x.intro)}${cards(x.items, 2)}</div></section>`,
+  steps: x => `<section class="band alt"><div class="wrap">${head(x.eyebrow, x.h2)}<ol class="steps">${x.steps.map((st, i) => `<li><span class="num" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span><h3>${esc(st.title)}</h3><p>${esc(st.body)}</p></li>`).join('')}</ol></div></section>`,
+  split: x => `<section class="band dark"><div class="wrap split${x.reverse ? ' rev' : ''}"><div class="split-img">${pic(x.image, '(max-width: 820px) 90vw, 480px')}</div><div>${head(x.eyebrow, x.h2)}${x.paras.map(t => `<p>${esc(t)}</p>`).join('')}${textLink(x.link)}</div></div></section>`,
+  note: x => `<section class="band"><div class="wrap narrow"><aside class="note"><h2 class="h3">${esc(x.title)}</h2><p>${esc(x.body)}</p></aside></div></section>`,
+  packages: x => `<section class="band alt"><div class="wrap">${head(x.eyebrow, x.h2, x.intro)}<div class="grid c4 pkgs">${x.items.map(k => `<div class="card pkg"><h3>${esc(k.name)}</h3><p class="label">${esc(k.sub)}</p><p>${esc(k.for)}</p>${ul(k.list)}</div>`).join('')}</div><p class="small">No prices are shown: fees, service hours and response times are set in each agreement.</p></div></section>`,
+  two: x => `<section class="band"><div class="wrap">${head(x.eyebrow, x.h2)}<div class="grid c2">${x.cols.map(c => `<div class="card"><h3>${esc(c.title)}</h3>${ul(c.list)}</div>`).join('')}</div></div></section>`,
+  audience: x => `<section class="band aud"><div class="wrap split-text"><div>${head(x.eyebrow, x.h2)}${x.paras.map(t => `<p>${esc(t)}</p>`).join('')}</div><div class="card">${ul(x.list)}</div></div></section>`,
+  values: x => `<section class="band dark"><div class="wrap">${head(x.eyebrow, x.h2)}<ul class="values">${x.list.map(v => `<li>${esc(v)}</li>`).join('')}</ul></div></section>`,
+  cta: () => `<section class="band dark cta-band"><div class="wrap narrow center">${markSvg('cta-mark')}<h2>A private conversation is the first step.</h2><p class="lead">Tell us what you are responsible for. We will listen, and if we can serve you well, we will say exactly how.</p><p>${btn(s.cta.label, s.cta.href, 'btn btn-light')}</p><p class="next">A short, confidential conversation about your needs. No obligation.</p></div></section>`,
+  form: x => `<section class="band"><div class="wrap split-text form-wrap"><div><h2>${esc(x.h2)}</h2>
+<form id="enquiry" class="enquiry" novalidate>
+<div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+<div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+<div class="field"><label for="f-org">Organization or office <span class="opt">(optional)</span></label><input id="f-org" name="organization" type="text" autocomplete="organization"></div>
+<div class="field"><label for="f-type">I am enquiring for</label><select id="f-type" name="type" required><option value="">Choose one</option>${x.options.map(o => `<option>${esc(o)}</option>`).join('')}</select></div>
+<div class="field"><label for="f-msg">How can we help?</label><textarea id="f-msg" name="message" rows="5" required aria-describedby="f-privacy"></textarea><p class="hint" id="f-privacy">${esc(x.privacy)}</p></div>
+<div class="field check"><input id="f-ok" name="consent" type="checkbox" required><label for="f-ok">I agree to be contacted about this enquiry.</label></div>
+<p class="error" id="f-error" role="alert" hidden></p>
+<button class="btn btn-dark" type="submit">${esc(s.cta.label)}</button>
+<p class="status" id="f-status" role="status" hidden>${esc(s.concept ? x.conceptMessage : '')}</p>
+</form></div>
+<aside><h2 class="h3">What happens next</h2><ol class="next-steps">${x.next.map(n => `<li><h3>${esc(n.title)}</h3><p>${esc(n.body)}</p></li>`).join('')}</ol></aside></div></section>`,
+  legal: x => `<section class="band"><div class="wrap narrow">${draft(x.draft)}${x.parts.map(pt => `<div class="legal" id="${pt.id}"><h2>${esc(pt.h2)}</h2>${pt.paras.map(t => `<p>${esc(t)}</p>`).join('')}</div>`).join('')}</div></section>`
+};
+
+const hero = pg => {
+  const h = pg.hero;
+  if (h.type === 'home') return `<section class="hero home"><picture><source media="(max-width: 760px)" srcset="${srcset('hero-m')}" sizes="100vw">${pic('hero', '100vw', 'hero-img', true)}</picture>
+<div class="wrap hero-copy"><p class="eyebrow">${esc(h.eyebrow)}</p><h1>${esc(h.h1)}</h1><p class="lead">${esc(h.lede)}</p>
+<p class="actions">${btn(s.cta.label, s.cta.href, 'btn btn-light')} ${btn(h.secondary.label, h.secondary.href, 'link-light')}</p><p class="next">${esc(h.next)}</p></div></section>`;
+  return `<section class="hero inner${h.image ? ' has-img' : ''}"><div class="wrap${h.image ? ' split' : ''}"><div><p class="eyebrow">${esc(h.eyebrow)}</p><h1>${esc(h.h1)}</h1>${h.lede ? `<p class="lead">${esc(h.lede)}</p>` : ''}</div>${h.image ? `<div class="split-img">${pic(h.image, '(max-width: 820px) 70vw, 420px', '', true)}</div>` : ''}</div></section>`;
+};
+
+const css = fs.readFileSync(path.join(__dirname, 'styles.css'), 'utf8')
+  .replace(/var\(--(midnight|champagne|ivory|slate|sage|ink|mist|paper)\)/g, (m, k) => p[k]);
+
+const script = `document.querySelector('.menu-btn').addEventListener('click',function(){var o=document.body.classList.toggle('nav-open');this.setAttribute('aria-expanded',o)});
+var f=document.getElementById('enquiry');if(f){f.addEventListener('submit',function(e){e.preventDefault();var bad=[].filter.call(f.elements,function(el){return el.willValidate&&!el.checkValidity()});
+[].forEach.call(f.elements,function(el){if(el.willValidate)el.setAttribute('aria-invalid',!el.checkValidity())});var er=document.getElementById('f-error');
+if(bad.length){er.textContent='Please complete the highlighted fields'+(bad.some(function(el){return el.type==='email'&&el.value})?' and check the email address':'')+'.';er.hidden=false;bad[0].focus();return}
+er.hidden=true;var st=document.getElementById('f-status');st.hidden=false;st.focus&&st.setAttribute('tabindex','-1');st.focus()})}`;
+
+const page = pg => {
+  const isHome = pg.file === 'index.html';
+  const navHtml = s.nav.map(n => `<li><a href="${n.href}"${n.href === pg.file ? ' aria-current="page"' : ''}>${esc(n.label)}</a></li>`).join('');
+  return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(s.fullName)} · ${esc(s.descriptor)}</title>
-<meta name="description" content="${esc(s.statement)}">
-${s.concept ? '<meta name="robots" content="noindex, nofollow">\n' : ''}<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>${esc(pg.title)}</title>
+<meta name="description" content="${esc(pg.description)}">
+${s.concept ? '<meta name="robots" content="noindex, nofollow">\n' : `<link rel="canonical" href="${baseUrl}${isHome ? '' : pg.file}">\n`}<meta name="theme-color" content="${p.midnight}">
+<meta property="og:type" content="website"><meta property="og:site_name" content="${esc(s.name)}"><meta property="og:title" content="${esc(pg.title)}"><meta property="og:description" content="${esc(pg.description)}">
+<meta property="og:image" content="${baseUrl}img/og-1200.jpg"><meta property="og:image:alt" content="${esc(img.og.alt)}"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="${esc(s.fonts.googleCss)}">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>${css}</style>
 </head>
 <body>
-${s.concept ? '<div class="concept">CONCEPT PREVIEW · not the live site</div>\n' : ''}<main><div class="card">
-${mark}
-<p class="eyebrow">${esc(s.descriptor)}</p>
-<h1>Sovereign <span>Vanguard</span></h1>
-<div class="rule" aria-hidden="true"></div>
-<p class="statement">${esc(s.statement)}</p>
-<p class="status">${esc(s.status)}</p>
-</div></main>
-<footer>${esc(s.fullName)} · <a href="${esc(s.parent.url)}">${esc(s.parent.label)}</a></footer>
+<a class="skip" href="#main">Skip to content</a>
+${s.concept ? `<div class="concept">${esc(s.conceptBanner)}</div>\n` : ''}<header class="site-head"><div class="wrap head-row">
+<a class="brand" href="index.html">${markSvg('mark', '')}<span>Sovereign Vanguard</span></a>
+<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+<nav id="site-nav" aria-label="Main"><ul>${navHtml}</ul></nav>
+${btn(s.cta.label, s.cta.href, 'btn btn-light head-cta')}
+</div></header>
+<main id="main">
+${hero(pg)}
+${pg.sections.map(x => sections[x.type](x)).join('\n')}
+</main>
+<footer class="site-foot"><div class="wrap foot-grid">
+<div><p class="foot-brand">${markSvg('mark', '')}<span>${esc(s.fullName)}</span></p><p>${esc(s.descriptor)}</p><p class="tag">${esc(s.tagline)}</p></div>
+<nav aria-label="Footer"><ul>${s.nav.concat(s.footerLinks).filter(n => n.href !== 'index.html').map(n => `<li><a href="${n.href}">${esc(n.label)}</a></li>`).join('')}</ul></nav>
+<div><p><a href="${esc(s.parent.url)}">${esc(s.parent.label)}</a></p>${s.concept ? `<p class="small">${esc(s.conceptFooter)}</p>` : ''}</div>
+</div></footer>
+<script>${script}</script>
 </body>
 </html>
 `;
-fs.writeFileSync(path.join(out, 'index.html'), html);
-fs.writeFileSync(path.join(out, 'favicon.svg'), mark.replace('class="mark" ', '').replace('role="img" aria-label="SV mark (placeholder)"', 'xmlns="http://www.w3.org/2000/svg"').replace('<path d="M10', `<rect width="72" height="72" fill="${p.navy}"/><path d="M10`));
+};
+
+for (const pg of s.pages) fs.writeFileSync(path.join(out, pg.file), page(pg));
+fs.writeFileSync(path.join(out, '404.html'), page({ file: '404.html', title: `Page not found · ${s.name}`, description: 'This page could not be found.',
+  hero: { eyebrow: 'Not found', h1: 'This page could not be found.', lede: 'It may have moved. The links above will take you where you need to go.' }, sections: [{ type: 'cta' }] }));
+fs.writeFileSync(path.join(out, 'favicon.svg'), markSvg('', '').replace(' aria-hidden="true"', ' xmlns="http://www.w3.org/2000/svg"').replace('<path d="M10', `<rect width="72" height="72" fill="${p.midnight}"/><path d="M10`));
 fs.writeFileSync(path.join(out, 'CNAME'), s.host + '\n');
-fs.writeFileSync(path.join(out, 'robots.txt'), s.concept ? 'User-agent: *\nDisallow: /\n' : 'User-agent: *\nAllow: /\n');
-console.log(`built site/ for ${s.host} (concept=${s.concept})`);
+fs.writeFileSync(path.join(out, 'robots.txt'), s.concept ? 'User-agent: *\nDisallow: /\n' : `User-agent: *\nAllow: /\nSitemap: ${baseUrl}sitemap.xml\n`);
+if (!s.concept) fs.writeFileSync(path.join(out, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${s.pages.map(pg => `<url><loc>${baseUrl}${pg.file === 'index.html' ? '' : pg.file}</loc></url>`).join('\n')}\n</urlset>\n`);
+console.log(`built site/ (${s.pages.length} pages + 404) for ${s.host} (concept=${s.concept})`);
