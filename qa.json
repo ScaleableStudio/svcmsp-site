@@ -1,0 +1,8 @@
+{
+  "widths": [1440, 768, 390, 320],
+  "headerWidths": [320, 390, 768, 980, 981, 1180, 1181, 1280, 1440, 1920],
+  "pageBudgetBytes": 1572864,
+  "mobileViewportHeight": 900,
+  "report": "review/checks.json",
+  "regressionReport": "review/regressions.json"
+}
