@@ -1,5 +1,9 @@
 # Changes
 
+## 2026-11-13 — Shared planning context
+
+Added AGENTS.md and a CLAUDE.md import pointing both assistants to the private current brand/business guidance and Ken's five-tier planning decision. Pricing/scope remain unconfirmed. This is an instruction/documentation update; website design and customer-facing copy are unchanged.
+
 ## 2026-11-13 — Cinematic v3 concept deployment
 
 Ken requested 64K re-renders and concept-preview deployment. Refreshed all responsive graphics and added an artwork-review gallery. Eight native masters remain in the private source repository; only optimized derivatives ship here. Preserved the placeholder mark, scope/form safeguards and concept/noindex status. This is not production go-live approval.
