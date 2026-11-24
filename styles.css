@@ -167,7 +167,10 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
   .split-img img{width:100%;max-width:420px}
   .hero.inner .split-img{display:none}
 }
-@media (max-width:760px){
+/* #12 (2026-11-24): the home hero stacks the artwork below the copy from 980px down (was 760px). Between 761 and 980px
+   the 620px copy ran past the overlay's fade onto bright artwork (eyebrow 1.19:1, heading 1.81:1, lead 3.67:1, focus
+   outline 2.91:1 at 768px). Stacked, the copy always sits on solid midnight. */
+@media (max-width:980px){
   .hero.home{min-height:0;display:flex;flex-direction:column;align-items:stretch}
   .hero.home picture{order:2;display:block;overflow:hidden;max-height:300px}
   .hero-img{position:relative;height:300px;object-fit:cover;object-position:50% 39%}
@@ -178,6 +181,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
   .hero .actions{margin-top:24px}
   .hero .actions .btn{width:auto}
   .hero .actions .link-light{margin-left:0}
+}
+@media (max-width:760px){
   .experience .split-img{order:2}
 }
 @media (max-width:640px){
